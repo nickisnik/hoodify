@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './ShoppingCart.css'
+import '../styles/ShoppingCart.css'
 
 const ShoppingCart = ({cartItems, setCartItems}) => {
 
@@ -77,12 +77,18 @@ const ShoppingCart = ({cartItems, setCartItems}) => {
     const total = cartItems.reduce((sum, curr) => {
         return sum + (curr.price * curr.amount)
     }, 0)
+
+    const totalRounded = Math.round((total + Number.EPSILON) * 100) / 100
     
 
     const shoppingItem = cartItems.map(item => 
         <div className="ShoppingCart__item__container" key={item.name}>
-            <span className="ShoppingCart__item__name">{item.name}</span>
-            <span onClick={() => {handleClick(item, -1)}}>-</span>
+            <img src={item.imgURL} alt="" />
+            <div className="ShoppingCart__item__name-price__container">
+                <span className="ShoppingCart__item__name">{item.name}</span>
+                <span className="ShoppingCart__item__price">£{item.price}</span>
+            </div>
+            {/* <span onClick={() => {handleClick(item, -1)}}>-</span> */}
             <div className="ShoppingCart__item__amount__container">
                 <input
                     onBlur={() => {
@@ -99,17 +105,24 @@ const ShoppingCart = ({cartItems, setCartItems}) => {
                     type="text" value={showTempValue(item)} className='ShoppingCart__item__amount' 
                 />
             </div>
-            <span onClick={() => {handleClick(item, 1)}}>+</span>
+            {/* <span onClick={() => {handleClick(item, 1)}}>+</span> */}
         </div>    
     )
 
+
   return (
     <div className='ShoppingCart__container'>
-        <div className="ShoppingCart__item-list">
+        <header className="ShoppingCart__header">
+            Shopping Cart
+        </header>
+        <div className="ShoppingCart__item-list__wrapper">
             {shoppingItem}
-            <span>Your total is: {total}</span>
         </div>
-        <button onClick={checkOut}>Check out</button>
+        <div className="ShoppingCart__bottom__wrapper">
+            <span className="ShoppingCart__bottom__total">£{totalRounded}</span>
+            <span className="ShoppingCart__bottom__VAT">(incl. VAT)</span>
+            <button className='ShoppingCart__bottom__checkout' onClick={checkOut}>Check out</button>
+        </div>
     </div>
   )
 }

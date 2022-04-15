@@ -1,8 +1,8 @@
 .ShoppingContent__wrapper {
-    background-color: white;
     box-sizing: border-box;
     padding: 1rem 0.5rem;
     font-family: Arial;
+    overflow-x: hidden;
 }
 
 
@@ -43,8 +43,9 @@
     color: black;
 }
 
-.ShoppingItem__details header {
-    font-weight: 300;
+.ShoppingItem__name-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .ShoppingItem__details span {
@@ -53,26 +54,40 @@
     font-size: 16px;
 }
 
+.ShoppingItem__img__link-container {
+    height: 380px;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
 .ShoppingItem__img {
-    height: 480px;
+    height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.ShoppingItem__btn {
+.ShoppingItem__favorite-icon {
     position: absolute;
-    height: 210px;
-    width: 200px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.66);
-    font-size: 80px;
-    padding-top: 1rem;
-    box-sizing: border-box;
-    opacity: 0;
-    color: rgba(169, 169, 169, 0.726);
-    transition-duration: 400ms;
-    transition-timing-function: ease-in;
-    cursor: pointer;
+    right: 0;
+    bottom: 0;
+    margin: 0 0.5rem 0.5rem 0;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    visibility: visible;
+    opacity: 0.4;
+}
+
+.ShoppingItem__favorite-icon:hover {
+    opacity: 0.9;
+}
+
+.ShoppingItem__favorite-icon svg {
+    margin: auto;
+    fill: black !important;
 }
 
 .ShoppingItem:hover .ShoppingItem__btn{
@@ -84,8 +99,7 @@
         width: 150px;
         font-size: 14px;
     }
-    .ShoppingItem img {
-        object-fit: cover;
+    .ShoppingItem__img__link-container {
         height: 180px;
     }
     .ShoppingItemsList {
@@ -102,14 +116,24 @@
         font-size: 12px;
         margin-top: 0.15rem;
     }
+
+    .ShoppingItem__favorite-icon {
+        height: 35px;
+        width: 35px;
+    }
+
+    .ShoppingItem__favorite-icon svg {
+        height: 24px !important;
+        width: 24px !important;
+        margin: auto;
+    }
 }
 @media only screen and (max-width: 360px) {
     .ShoppingItem {
         width: 150px;
         font-size: 14px;
     }
-    .ShoppingItem img {
-        object-fit: cover;
+    .ShoppingItem__img__link-container {
         height: 180px;
     }
     .ShoppingItemsList {

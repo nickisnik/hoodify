@@ -1,8 +1,11 @@
 import React from 'react'
+import '../styles/Footer.css'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className='footer__wrapper'>
+      <span className='footer__author'>Designed by Nick. All rights reserved </span>
+    </div>
   )
 }
 

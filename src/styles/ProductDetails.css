@@ -1,0 +1,137 @@
+
+
+.product-details__wrapper {
+    display: flex;
+    font-family: 'Open Sans';
+    margin-top: 3rem;
+    padding: 0 3rem 0 15%;
+}
+
+.product-details__img-grid__container {
+    display: grid;
+    row-gap: 5px;
+    column-gap: 5px;
+    grid-template-rows: 4fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    box-sizing: border-box;
+}
+
+.product-details__img-grid__container img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
+.product-details__img-main {
+    height: 400px;
+    width: 310px;
+    /* width: 300px; */
+    object-fit: cover;
+    grid-column: 1/4;
+    position: relative;
+}
+.product-details__img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.product-details__text__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.product-details__text__name {
+    font-size :42px;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.product-details__text__descr__header {
+    font-size: 26px;
+    border-bottom: 2px solid grey;
+    width: 300px;
+}
+
+.product-details__text__descr {
+    width: 500px;
+}
+
+.product-details__add-button {
+    margin-top: auto;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    font-size: 26px;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: white;
+    word-spacing: -2px;
+    cursor: pointer;
+}
+
+.mobile__product-details__text__header {
+    display: none;
+}
+
+@media only screen and (max-width: 502px) {
+    .mobile__product-details__text__header {
+        display: block;
+        font-size :36px;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .product-details__img-grid__container {
+        margin: auto auto 2rem auto;
+    }
+    
+    .product-details__img-grid__container img {
+        width: 100px;
+    }
+    
+    .product-details__img-main {
+        height: 400px;
+        width: 310px;
+    }
+
+    .product-details__img-main img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .product-details__text__name {
+        display: none;
+    }
+
+    .product-details__wrapper {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .product-details__text__wrapper {
+        margin: 0;
+        order: 2;
+    }
+
+    .product-details__text__descr__header {
+        font-size: 24px;
+        width: 200px;
+    }
+
+    .product-details__text__descr {
+        width: 90%;
+    }
+
+    .product-details__add-button {
+        margin: 1rem auto 2rem auto;
+        order: 1;
+    }
+}
+
+
+
